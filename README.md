@@ -118,6 +118,64 @@ MediBot automatically converts the question into a database query, runs it, and 
 
 ---
 
+## Example Questions by Role
+
+### 👨‍⚕️ Doctor (`dr.mehta`)
+
+| Question | What MediBot Does |
+|----------|------------------|
+| What is the standard dosage for Metformin? | Searches clinical collection → treatment protocols |
+| What are the ICU ventilator management procedures? | Searches nursing collection → ICU procedures |
+| What is the drug interaction between Warfarin and Aspirin? | Searches clinical → drug formulary |
+| How many days of sick leave am I entitled to? | Searches general → leave policy |
+
+---
+
+### 👩‍⚕️ Nurse (`nurse.priya`)
+
+| Question | What MediBot Does |
+|----------|------------------|
+| What is the standard hand hygiene protocol before a procedure? | Searches nursing → infection control |
+| What are the ICU nursing documentation requirements? | Searches nursing → ICU procedures |
+| What is the code of conduct for social media use? | Searches general → code of conduct |
+| Show me the insurance billing codes *(blocked)* | 🔒 RBAC block — billing not accessible to nurses |
+
+---
+
+### 🧾 Billing Executive (`billing.ravi`)
+
+| Question | What MediBot Does |
+|----------|------------------|
+| How many claims are currently pending? | SQL RAG → COUNT query on claims table |
+| Which department has the most approved claims? | SQL RAG → GROUP BY department |
+| What is the process for submitting a rejected claim? | Searches billing → claim submission guide |
+| What are the ICD-10 codes for hypertension? | Searches billing → billing codes PDF |
+| What are the ICU nursing procedures? *(blocked)* | 🔒 RBAC block — nursing not accessible to billing |
+
+---
+
+### 🔧 Technician (`tech.anand`)
+
+| Question | What MediBot Does |
+|----------|------------------|
+| What is the maintenance procedure for MRI machines? | Searches equipment → equipment manual |
+| How do I calibrate the patient monitoring system? | Searches equipment → equipment manual |
+| What is the staff leave policy? | Searches general → leave policy |
+| Show me clinical treatment protocols *(blocked)* | 🔒 RBAC block — clinical not accessible to technicians |
+
+---
+
+### 🛡️ Admin (`admin.sys`)
+
+| Question | What MediBot Does |
+|----------|------------------|
+| How many maintenance tickets are still open? | SQL RAG → COUNT query on maintenance_tickets table |
+| What is the average approved amount for cardiology claims? | SQL RAG → AVG + WHERE filter |
+| What are the ICU nursing procedures? | Searches nursing (admin has full access) |
+| What are the current billing codes for diabetes? | Searches billing collection |
+
+---
+
 ## Security — Adversarial Test Results
 
 Three deliberate attempts to bypass role restrictions were tested:
