@@ -1,0 +1,22 @@
+venv/
+.venv/
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Next.js
+node_modules/
+.next/
+out/
+
+# Qdrant local storage
+qdrant_storage/
+
+# Model cache
+.cache/
+huggingface/

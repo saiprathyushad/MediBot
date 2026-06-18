@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-jose[cryptography]
+python-dotenv
+langchain
+langchain-classic
+langchain-community
+langchain-core
+langchain-groq
+langchain-qdrant
+langchain-huggingface
+sentence-transformers
+qdrant-client[fastembed]
+docling
+docling-hierarchical-pdf
+pandas
